@@ -78,7 +78,7 @@ public class Player : KinematicBody2D
 
         if (wallJump > 0)
         {
-            
+
             if (IsOnWall() && !IsOnFloor() && Input.IsActionJustPressed("jump"))
             {
 
@@ -87,9 +87,10 @@ public class Player : KinematicBody2D
                 if (Input.IsActionPressed("move_left"))
                 {
 
+                    
                     movement.x = move_Speed * 15;
                     movement.y = jump_Force;
-                    
+
 
                 }
                 else if (Input.IsActionPressed("move_right"))
@@ -97,7 +98,6 @@ public class Player : KinematicBody2D
 
                     movement.x = -move_Speed * 15;
                     movement.y = jump_Force;
-                    
 
                 }
 
@@ -105,32 +105,37 @@ public class Player : KinematicBody2D
 
         }
 
-        if (IsOnFloor()) // only able to jump once if on the floor
+        if (IsOnFloor()) // jump 
         {
-
-            movement.y = Input.IsActionJustPressed("jump") ? jump_Force : movement.y;
+            
             wallJump = 3;
+            movement.y = Input.IsActionJustPressed("jump") ? jump_Force : movement.y;
 
         } // jump
 
-        if (Input.IsActionJustPressed("dash") && Input.IsActionPressed("move_right")) // dash ----------------
+        if (Input.IsActionJustPressed("dash"))  // dash -------------------------------------------------------
         {
 
-            if (isDashing == false)
+            if (Input.IsActionPressed("move_right"))
             {
 
-                isDashing = true;
+                if (isDashing == false)
+                {
+
+                    isDashing = true;
+
+                }
 
             }
-
-        }
-        else if (Input.IsActionJustPressed("dash") && Input.IsActionPressed("move_left"))
-        {
-
-            if (isDashing == false)
+            else if (Input.IsActionPressed("move_left"))
             {
 
-                isDashing = true;
+                if (isDashing == false)
+                {
+
+                    isDashing = true;
+
+                }
 
             }
 
