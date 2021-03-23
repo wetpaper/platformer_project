@@ -21,18 +21,14 @@ animations = [ {
 extents = Vector2( 25.3527, 14.0912 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 26.8242, 15.3852 )
+extents = Vector2( 25.4775, 14.1737 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Animation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walk"
-frame = 1
 playing = true
 flip_h = true
 
@@ -43,8 +39,6 @@ shape = SubResource( 2 )
 [node name="collisionPlayer" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collisionPlayer"]
-position = Vector2( 0.840866, 1.89201 )
+position = Vector2( 0.840866, 2.76701 )
 shape = SubResource( 3 )
-
-[node name="Timer" type="Timer" parent="."]
 [connection signal="body_entered" from="collisionPlayer" to="." method="_on_body_entered"]
