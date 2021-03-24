@@ -131,7 +131,7 @@ public class Player : KinematicBody2D
         if (wallJump > 0)
         {
 
-            if (IsOnWall() && !IsOnFloor() && Input.IsActionJustPressed("jump"))
+            if (IsOnWall() && Input.IsActionJustPressed("jump"))
             {
 
                 wallJump--;
